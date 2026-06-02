@@ -1,6 +1,11 @@
 # 📊 AI Data Insights Dashboard
 
 > Transformando arquivos CSV em insights acionáveis com análise automatizada e IA generativa.
+Tecnologias:
+Python • Streamlit • Pandas • Plotly • Gemini
+
+Status:
+✅ MVP funcional
 
 ---
 
@@ -21,7 +26,7 @@ O objetivo é reduzir a barreira entre "ter dados" e "entender dados".
 |---|---|
 | 📁 Upload de CSV | Carrega qualquer arquivo CSV diretamente na interface |
 | 🔍 Visualização dos dados | Exibe a tabela completa com scroll |
-| 📈 Gráfico visual | Gráfico de barras com Plotly |
+| 📈 Visualizações gráficas | Gráfico de barras e histograma com Plotly
 | 📊 Estatísticas descritivas | Média, mediana, desvio padrão e mais |
 | 🤖 Insights automáticos | Análise gerada automaticamente com regras |
 | 💡 Insights com IA | Insights estratégicos gerados pela API do Google Gemini |
@@ -45,7 +50,7 @@ O objetivo é reduzir a barreira entre "ter dados" e "entender dados".
 
 ### Pré-requisitos
 
-- Python 3.9 ou superior instalado
+- Desenvolvido e testado em Python 3.11
 - Uma chave de API do [Google Gemini](https://aistudio.google.com/app/apikey) (gratuita)
 
 ### Passo a passo
@@ -119,16 +124,20 @@ ai-data-insights/
 
 ## Arquitetura do funcionamento
 CSV
- ↓
-Pandas
- ↓
-Estatísticas
- ↓
-Plotly
- ↓
-Gemini
- ↓
-Insights
+↓
+Pandas (leitura e validação)
+↓
+DataFrame
+↓
+Estatísticas automáticas
+↓
+Visualizações (Plotly)
+↓
+Insights automáticos
+↓
+Gemini AI (opcional via botão)
+↓
+Insights estratégicos
 
 ---
 
@@ -171,6 +180,10 @@ Este projeto foi desenvolvido com uso intenso de IA — de forma transparente e 
 ![Meu Print](images/Insights_Estratégicos_com_IA.png)
 
 
+## 🎥 Vídeo Demonstrativo
+
+Link da apresentação do projeto:
+
 ---
 ## 📚 Aprendizados
 
@@ -191,7 +204,8 @@ Principais conceitos que fui apresentado e usei neste projeto:
 - Não suporta arquivos muito grandes (acima de ~10MB pode ficar lento)
 - Os insights da IA dependem de uma boa conexão e da disponibilidade da API
 - Não há autenticação: qualquer pessoa com o link pode usar
-- Os gráficos são gerados automaticamente — nem sempre são os mais adequados para cada dataset
+- Os gráficos são gerados automaticamente (nem sempre são os mais adequados para cada dataset).
+- O histograma só pode ser utilizado em colunas numéricas.
 
 ---
 
@@ -199,9 +213,10 @@ Principais conceitos que fui apresentado e usei neste projeto:
 
 - [ ] Adicionar suporte a arquivos Excel (`.xlsx`)
 - [ ] Permitir que o usuário escolha quais colunas visualizar
-- [ ] Adicionar seletor de tipo de gráfico
 - [ ] Deploy no Streamlit Cloud para acesso público sem instalação
 - [ ] Adicionar exportação de relatório em PDF
+- [ ] Adicionar gráficos de dispersão
+- [ ] Adicionar boxplots para identificação de outliers
 
 ---
 

@@ -3,7 +3,10 @@
 # ===================================================
 import streamlit as st
 import pandas as pd
-from utils.charts import create_distribution_chart
+from utils.charts import (
+    create_distribution_chart,
+    create_histogram
+)
 from utils.insights import generate_basic_insights
 from utils.ai_insights import generate_ai_insights
 
@@ -175,21 +178,50 @@ st.divider()
 
 st.subheader("📊 Distribuição dos Dados")
 
+chart_type = st.radio(
+    "Tipo de gráfico",
+    ["Barras", "Histograma"],
+    horizontal=True
+)
+
 column = st.selectbox(
     "Selecione uma variável para analisar graficamente",
     df.columns
 )
 
-fig = create_distribution_chart(
-    df,
-    column
-)
+if chart_type == "Barras":
 
-st.plotly_chart(
-    fig,
-    width="stretch",
-    config={"displayModeBar": False}
-)
+    fig = create_distribution_chart(
+        df,
+        column
+    )
+
+    st.plotly_chart(
+        fig,
+        width="stretch",
+        config={"displayModeBar": False}
+    )
+
+else:
+
+    if pd.api.types.is_numeric_dtype(df[column]):
+
+        fig = create_histogram(
+            df,
+            column
+        )
+
+        st.plotly_chart(
+            fig,
+            width="stretch",
+            config={"displayModeBar": False}
+        )
+
+    else:
+
+        st.warning(
+            "Histograma só pode ser gerado para colunas numéricas."
+        )
 
 st.caption(
     "Exibindo até os 20 valores mais frequentes."
@@ -295,25 +327,20 @@ AMOSTRA DOS DADOS:
 
 st.subheader("🤖 Insights Estratégicos com IA")
 
-try:
-    with st.spinner("Gerando insights com IA..."):
-        ai_response = generate_ai_insights(
-            summary=summary,
-            columns=list(df.columns),
-            shape=df.shape
+if st.button("🚀 Gerar Insights com IA"):
+
+    try:
+        with st.spinner("Gerando insights com IA..."):
+
+            ai_response = generate_ai_insights(
+                summary=summary,
+                columns=list(df.columns),
+                shape=df.shape
+            )
+
+            st.write(ai_response)
+
+    except Exception as error:
+        st.error(
+            f"Não foi possível gerar os insights com IA: {error}"
         )
-
-except Exception as error:
-    ai_response = None
-    st.error(f"Não foi possível gerar os insights com IA: {error}")
-
-
-# ===================================================
-## EXIBIÇÃO DOS INSIGHTS DA IA
-# ===================================================
-
-if ai_response:
-    st.write(ai_response)
-
-else:
-    st.warning("A IA não retornou nenhum insight.")

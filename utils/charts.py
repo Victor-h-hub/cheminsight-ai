@@ -28,3 +28,18 @@ def create_distribution_chart(df, column):
     )
 
     return fig
+
+def create_histogram(df, column):
+
+    fig = px.histogram(
+        df,
+        x=column,
+        nbins=20,
+        title=f"Distribuição de {column}"
+    )
+
+    fig.update_layout(
+        showlegend=False
+    )
+
+    return fig
