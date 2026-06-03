@@ -7,6 +7,20 @@ Python • Streamlit • Pandas • Plotly • Gemini
 Status:
 ✅ MVP funcional
 
+## 📝 Planejamento Inicial
+
+Antes do desenvolvimento, foi elaborado um rascunho de planejamento para definir:
+
+- escopo do MVP;
+- prioridades de desenvolvimento;
+- arquitetura inicial;
+- etapas de aprendizado necessárias;
+- cronograma de execução.
+
+Esse planejamento serviu como guia para as decisões tomadas durante o projeto.
+
+![Planejamento Inicial](docs/planejamento_inicial.jpg)
+
 ---
 
 ## 🎯 Problema que resolve
@@ -166,6 +180,10 @@ Este projeto foi desenvolvido com uso intenso de IA — de forma transparente e 
 - Não aceitei sugestões de overengineering (banco de dados, autenticação, deploy em nuvem)
 - Priorizei legibilidade sobre performance neste estágio
 
+Documentação detalhada:
+
+📄 [Uso da IA no Desenvolvimento](uso_da_IA.md)
+
 ---
 
 ## 📸 Demonstração
@@ -182,7 +200,7 @@ Este projeto foi desenvolvido com uso intenso de IA — de forma transparente e 
 
 ## 🎥 Vídeo Demonstrativo
 
-Link da apresentação do projeto:
+Link da apresentação do projeto: https://youtu.be/nKmnh0qXTmk 
 
 ---
 ## 📚 Aprendizados
