@@ -19,7 +19,7 @@ Antes do desenvolvimento, foi elaborado um rascunho de planejamento para definir
 
 Esse planejamento serviu como guia para as decisões tomadas durante o projeto.
 
-![Planejamento Inicial](docs/planejamento_inicial.jpg)
+![Planejamento Inicial](docs/planejamentoinicial.jpeg)
 
 ---
 
