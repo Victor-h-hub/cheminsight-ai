@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 .env
-
-
+.vscode/
+.DS_Store
+desktop.ini
 
